@@ -87,7 +87,7 @@ export default class SubState extends PubSub {
 
     // Updates the state history array and sets the currentState pointer properly
     pushState(newState) {
-      this.stateStorage = this.stateStorage.concat(newState);
+      this.stateStorage = this.stateStorage.slice(0, this.currentState).concat(newState);
       this.currentState = this.stateStorage.length;
     }
 
